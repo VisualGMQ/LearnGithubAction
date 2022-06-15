@@ -9,7 +9,7 @@ jobs:
       - name: install cmake
         run: npm install -g cmake
       - name: install SDL2
-        run" |
+        run: |
           sudo apt-get update
           sudo apt-get install libsdl2-dev
       - name: build project
