@@ -4,4 +4,5 @@ project(HelloGithubAction)
 
 find_package(SDL2 REQUIRED)
 
-add_executable(main.out src/main.cpp SDL2::SDL2)
+add_executable(main.out src/main.cpp)
+target_link_libraries(main.out PUBLIC SDL2::SDL2)
