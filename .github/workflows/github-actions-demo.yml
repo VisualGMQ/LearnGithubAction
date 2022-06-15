@@ -20,6 +20,8 @@ jobs:
           cmake --build build
       - name: run output
         run : ./build/main.out
+      - name: output github-ref
+        run: echo ${{github.ref}}
       - name: Release
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
