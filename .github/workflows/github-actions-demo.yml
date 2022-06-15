@@ -4,8 +4,6 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
-      - name: install cmake
-        run: apt install cmake
       - name: Check out repository code
         uses: actions/checkout@v3
       - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
@@ -13,6 +11,8 @@ jobs:
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
+      - name: install cmake
+        run: npm install -g cmake
       - run: echo "🍏 This job's status is ${{ job.status }}."
       - run: cmake -S . -B build -G"Unix Makefiles"
       - run: cmake --build build
