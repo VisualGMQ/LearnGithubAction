@@ -6,12 +6,6 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v3
-      - name: install cmake
-        run: npm install -g cmake
-      - name: install SDL2
-        run: |
-          sudo apt-get update
-          sudo apt-get install libsdl2-dev
       - name: build project
         run: |
           cmake -S . -B build -G"Unix Makefiles"
