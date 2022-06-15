@@ -1,8 +1,10 @@
 name: GitHub Actions Demo
 on: [push]
 jobs:
-  Build-Project:
+  Build-Ubuntu-Project:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Check out repository code
         uses: actions/checkout@v3
@@ -18,3 +20,7 @@ jobs:
           cmake --build build
       - name: run output
         run : ./build/main.out
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: ./build/main.out
